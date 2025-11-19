@@ -3,11 +3,11 @@
 #include <math.h>
 
 MotionProcessor::MotionProcessor(Rate rate)
-    : sampleRate(rate),
+    : acc_X(0), acc_Y(0), acc_Z(0),
+      gyr_X(0), gyr_Y(0), gyr_Z(0),
+      sampleRate(rate),
       dsp(static_cast<float>(rate)),   // give real Hz to DSP
-      bufIndex(0),
-      acc_X(0), acc_Y(0), acc_Z(0),
-      gyr_X(0), gyr_Y(0), gyr_Z(0)
+      bufIndex(0)
 {
     sampleInterval = 1000UL / static_cast<unsigned long>(sampleRate);
     lastSampleTime = 0;
